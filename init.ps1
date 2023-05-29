@@ -1,65 +1,54 @@
-# Git 
-git init
-ni README.md
-ni .env
-ni .gitignore
+# Make a npm package and install deps
+./node
+./django
 
-# Poetry - Django
-poetry init -n
-poetry add flake8 black option --group dev
-poetry add django pillow django-extensions psycopg2-binary django-dotenv
-poetry shell
+# Start Project
 django-admin startproject base .
 
-# Settings
-mkdir base/settings
-ni base/settings/__init__.py
-ni base/settings/auth.py
-ni base/settings/conf.py
-ni base/settings/dev.py
-mv base/settings.py base/settings/base.py
+# Make Directories
+mkdir apps, 
+apps/utils,
+base/settings,
+media,
+staticfiles,
+staticfiles/styles,
+staticfiles/scripts,
+staticfiles/images,
+staticfiles/svgs,
+staticfiles/icons,
+staticfiles/lib,
+templates, 
+templates/base, 
+templates/base/components, 
+templates/base/partial./ini
 
-# Apps
-mkdir apps
-ni apps/__init__.py
-mkdir apps/accounts
-mkdir apps/utils
-ni apps/utils/__init__.py
-ni apps/utils/helpers.py
+# Copy Files
+Copy-Item node_modules/flowbite/dist/flowbite.min.js staticfiles/scripts, 
+node_modules/htmx.org/dist/htmx.min.js staticfiles/scripts
 
-# Static
-mkdir staticfiles
-mkdir staticfiles/styles
-mkdir staticfiles/scripts
-mkdir staticfiles/images
-mkdir staticfiles/svgs
-mkdir staticfiles/icons
-mkdir staticfiles/lib
-# 
-ni staticfiles/styles/base.css
-ni staticfiles/scripts/scripts.js
+# Move Files
+Move-Item base/settings.py base/settings/base.py
 
-# Media
-mkdir media
-
-# Templates
-mkdir templates
-mkdir templates/base
-mkdir templates/base/partials
-mkdir templates/base/components
-ni templates/index.html
-ni templates/base/base.html
-ni templates/base/components/footer.html
-ni templates/base/components/navbar.html
-ni templates/base/components/messages.html
-ni templates/base/partials/styles.html
-ni templates/base/partials/scripts.html
-ni templates/base/partials/errors.html
-ni templates/base/partials/oh_no.html
-
-# Node
-yarn init -y
-yarn add tailwindcss flowbite
-cp node_modules/flowbite/dist/flowbite.js staticfiles/scripts
-npx tailwindcss init
-echo done!
+# New Files
+New-Item base/settings/__init__.py,
+base/settings/auth.py,
+base/settings/conf.py,
+base/settings/dev.py,
+.env,
+LICENSE,
+.gitignore, 
+readme.md, 
+apps/utils/__init__.py, 
+apps/utils/apps.py, 
+apps/utils/helpers.py,
+staticfiles/styles/base.css,
+staticfiles/scripts/scripts.js,
+templates/index.html,
+templates/base/base.html,
+templates/base/components/footer.html,
+templates/base/components/messages.html,
+templates/base/components/navbar.html,
+templates/base/partials/form_errors.html,
+templates/base/partials/oh_no.html,
+templates/base/partials/styles.html,
+templates/base/partials/scripts.html
